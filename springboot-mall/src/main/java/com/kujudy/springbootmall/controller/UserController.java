@@ -1,5 +1,6 @@
 package com.kujudy.springbootmall.controller;
 
+import com.kujudy.springbootmall.dto.UserLoginRequest;
 import com.kujudy.springbootmall.dto.UserRegisterRequest;
 import com.kujudy.springbootmall.model.User;
 import com.kujudy.springbootmall.service.UserService;
@@ -26,4 +27,10 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
 
+    @PostMapping("/users/login")
+    public ResponseEntity<User> login(@RequestBody @Valid UserLoginRequest userLoginRequest){
+        User user = userService.login(userLoginRequest);
+
+        return  ResponseEntity.status(HttpStatus.OK).body(user);
+    }
 }

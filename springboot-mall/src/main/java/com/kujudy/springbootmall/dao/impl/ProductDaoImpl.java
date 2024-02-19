@@ -25,6 +25,8 @@ public class ProductDaoImpl implements ProductDao {
     public Integer countProduct(ProductQueryParams productQueryParams) {
         String sql = "SELECT count(*) from product WHERE 1=1";
 
+
+
         Map<String, Object> map = new HashMap<>();
 
         //查詢條件
